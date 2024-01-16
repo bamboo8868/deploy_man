@@ -1,14 +1,15 @@
-const DepolyMan = require('./src/DepolyMan');
+const DepolyMan = require('./src/DeployMan');
 
 
 
 
 
 async function main() {
-	let man = new DepolyMan();
+	const servers = require('./config/config.json');
+	let man = new DepolyMan(servers);
 
 	man.group('web');
-	await man.run("cd /home/leo/test/newer && git log");
+	await man.run("ls -a");
 	await man.run("ls -a");
 }
 
